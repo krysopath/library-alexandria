@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if student.borrowed %}
+    <ul class=entries>
+    {% for book in books %}
+        <li><h2>{{ book }}</h2>{{ book|safe }}
+    {% else %}
+        <li><em>Unbelievable.  Nothing here so far</em>
+    {% endfor %}
+    </ul>
+{% else %}
+{% endif %}
+
+
+{% endblock %}
