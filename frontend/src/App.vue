@@ -10,7 +10,8 @@
         <option value="author">Author</option>
         <option value="condition">Condition</option>
         <option value="identity">Identity</option>
-        <option value="borrower">Borrower</option>
+        <option value="student">Student</option>
+        <option value="borrowed">Borrowed</option>
       </select>
     </div>
 
@@ -21,7 +22,6 @@
         <a href="/#/students">
           <img class="navitem" src="./assets/students.png">
         </a>
-        <img class="navitem" src="./assets/email.png">
       </div>
     </div>
     <div id="left_side">
@@ -96,8 +96,8 @@ export default {
 #navbar {
   position: fixed;
   text-align: right;
-  background: #3399ff;
-  top: 0;
+  background-color: none;
+  top: 0%;
   left: 80%;
   margin-top: 39px;
   margin-left: 10px;
@@ -106,8 +106,10 @@ export default {
 .navitem {
   margin-left: 20px;
   margin-right: 20px;
+  margin-top:2%;
   width: 10%;
-  height: 10%;
+  height: 8%;
+
 }
 
 #left_side {

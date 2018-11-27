@@ -5,8 +5,7 @@
     <table>
       <thead>
         <tr>
-          <th>Lastname</th>
-          <th>Firstname</th>
+          <th>Name</th>
           <th>PersonalId</th>
           <th>Email</th>
           <th>Books</th>
@@ -138,5 +137,6 @@ thead {
 
 table {
   width: 100%;
+  margin: 30px 10px 0 -20px;
 }
 </style>

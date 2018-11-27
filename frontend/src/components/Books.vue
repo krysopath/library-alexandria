@@ -9,7 +9,8 @@
           <th>Author</th>
           <th>Condition</th>
           <th>Identity</th>
-          <th>Borrower</th>
+          <th>Student</th>
+          <th>Status</th>
           <th></th>
         </tr>
       </thead>
@@ -43,6 +44,7 @@ export default {
     };
   },
   created() {
+    // test
     axios
       .get("/books")
       .then(response => {
@@ -67,7 +69,11 @@ export default {
         borrowed: borrowed.length
       };
     },
+    selectedCategory() {
+      return this.$store.state.selected_category.toLowerCase();
+    },
     books_filtered: function() {
+      let books = [];
       if (this.$store.state.search_expr.length > 0) {
         var books_filtered = [];
         var expr = this.$store.state.search_expr.toLowerCase();
@@ -80,24 +86,40 @@ export default {
             books_filtered.push(si);
           }
         }
-        return books_filtered;
+        books = books_filtered;
       } else {
-        return this.$store.state.books;
+        books = this.$store.state.books;
       }
+      books = this.sortByKey(books, category)
+      return books
     }
   },
   methods: {
-    is_contained: function(obj, list) {
+    is_contained(obj, list) {
       return list.some((listElement) => {
         return listElement === obj;
       });
     },
-    remove_by_attr: function(arr, attr, value) {
+    remove_by_attr(arr, attr, value) {
       return arr.filter((element) => {
         return element[attr] !== value;
       })
     },
-    toggle_row: function(row) {
+    sortByKey(array, key) {
+      debugger;
+      if (typeof array === 'Array') {
+        let sorteArrary = array
+        sorteArrary.sort(function(a, b) {
+          var x = a[key];
+          var y = b[key];
+          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+        return sorteArrary;
+      }
+      return array;
+
+    },
+    toggle_row(row) {
       this.$store.commit("select_row", row);
       if (this.is_contained(row, this.$store.state.selected_books)) {
         this.$store.commit(
@@ -132,5 +154,7 @@ thead {
 
 table {
   width: 100%;
+  margin:   30px 10px 0 -20px;
 }
+
 </style>

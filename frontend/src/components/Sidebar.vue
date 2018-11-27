@@ -3,13 +3,6 @@
       <div v-for="item in actions" :key="item.name">
         {{ item.name }}<br>
       </div>
-      <div>
-      <form method="get" action="/page2">
-        <button type="Submit">Add book</button>
-        <button type="Submit">Edit book</button>
-        <button type="Submit">Delete book</button>
-      </form>
-    </div>
       <br>
       <div v-for="key in this.selected_keys" :key="key">
         {{key}}: <br><input v-model="message" :placeholder="selected[key]"><br><br>
@@ -43,6 +36,7 @@ export default {
         { name: "Add book", action: "" },
         { name: "Edit book", action: "" },
         { name: "Delete book", action: "" },
+        { name: "Release book", action: "" },
       ],
     };
   }
@@ -51,23 +45,60 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+body{
+  font-family:"Lato", sans-serif;
+}
+
+.sidenav {
+  height: 80%;
+  width: 13%;
+  position: fixed;
+  z-index: 1;
+  top: 10%;
+  left:10px;
+  background-color: #fff;
+  overflow-x: hidden;
+  padding-top: 110px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 24px;
+  text-decoration:  none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #000;
+}
+
+.main {
+  margin-left: 200px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {front-size: 18px;}
+}
+
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0 10px;
 }
+
 li {
   margin: 0 10px;
 }
+
+
 a {
-  margin: 0 40px;
+  margin: 0px 40px;
   color: #42b983;
 }
-button {
-  display: fixed;
-  margin: 16px 40px;
-  padding: 10px 70px 10px 70px;
-}
+
 </style>

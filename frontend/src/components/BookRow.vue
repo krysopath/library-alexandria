@@ -4,16 +4,16 @@
     <td>{{book.author.name}} {{book.author.surename}}</td>
     <td>{{book.condition}}</td>
     <td>{{book.identity}}</td>
-    <td>{{book.borrowed_by}}</td>
-    <td></td>
+    <td>{{book.borrowed_by.name}} {{book.borrowed_by.surename}}</td>
+    <td>something</td>
   </tr>
   <tr v-else>
     <td>{{book.title}}</td>
     <td>{{book.author.name}} {{book.author.surename}}</td>
     <td>{{book.condition}}</td>
     <td>{{book.identity}}</td>
-    <td>{{book.borrowed_by}}</td>
-    <td></td>
+    <td>{{book.borrowed_by.name}} {{book.borrowed_by.surename}}</td>
+    <td>something</td>
   </tr>
 </template>
 

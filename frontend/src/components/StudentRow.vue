@@ -1,15 +1,13 @@
 <template>
   <tr v-if="is_contained(student, this.$store.state.selected_students)" bgcolor="#ADD8E6">
-    <td>{{student.surename}}</td>
-    <td>{{student.name}}</td>
+    <td>{{student.name}} {{student.surename}}</td>
     <td>{{student.personal_id}}</td>
     <td>{{student.email}}</td>
     <td>{{student.books.length}}</td>
     <td></td>
   </tr>
   <tr v-else>
-    <td>{{student.surename}}</td>
-    <td>{{student.name}}</td>
+    <td>{{student.name}} {{student.surename}}</td>
     <td>{{student.personal_id}}</td>
     <td>{{student.email}}</td>
     <td>{{student.books.length}}</td>
