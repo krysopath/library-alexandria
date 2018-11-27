@@ -3,6 +3,13 @@
       <div v-for="item in actions" :key="item.name">
         {{ item.name }}<br>
       </div>
+      <div>
+      <form method="get" action="/page2">
+        <button type="Submit">Add book</button>
+        <button type="Submit">Edit book</button>
+        <button type="Submit">Delete book</button>
+      </form>
+    </div>
       <br>
       <div v-for="key in this.selected_keys" :key="key">
         {{key}}: <br><input v-model="message" :placeholder="selected[key]"><br><br>
@@ -20,8 +27,6 @@ export default {
     },
     selected_keys: function() {
       if (this.selected !== {}) {
-        // TODO: remove this CWE-546
-        // eslint-disable-next-line
         this.values = this.selected;
         return Object.keys(this.selected);
       }
@@ -35,14 +40,10 @@ export default {
   data() {
     return {
       actions: [
-        { name: "Create", action: "" },
-        { name: "Read", action: "" },
-        { name: "Update", action: "" },
-        { name: "Delete", action: "" }
+        { name: "Add book", action: "" },
+        { name: "Edit book", action: "" },
+        { name: "Delete book", action: "" },
       ],
-      errors: [],
-      values: {},
-      search_expr: "",
     };
   }
 };
@@ -55,13 +56,18 @@ h3 {
 }
 ul {
   list-style-type: none;
-  padding: 0;
+  padding: 0 10px;
 }
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 a {
+  margin: 0 40px;
   color: #42b983;
+}
+button {
+  display: fixed;
+  margin: 16px 40px;
+  padding: 10px 70px 10px 70px;
 }
 </style>

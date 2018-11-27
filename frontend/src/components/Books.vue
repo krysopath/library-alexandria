@@ -71,16 +71,12 @@ export default {
       if (this.$store.state.search_expr.length > 0) {
         var books_filtered = [];
         var expr = this.$store.state.search_expr.toLowerCase();
+        var category = this.$store.state.selected_category.toLowerCase();
 
         for (var i = 0; i < this.$store.state.books.length; i++) {
           var si = this.$store.state.books[i];
-
-          if (
-            si.title.toLowerCase().includes(expr) ||
-            si.author.name.toLowerCase().includes(expr) ||
-            si.author.surename.toLowerCase().includes(expr) ||
-            si.identity.toLowerCase().includes(expr)
-          ) {
+          console.log(si, expr, category)
+          if (category && si[category].includes(expr)){
             books_filtered.push(si);
           }
         }
@@ -105,7 +101,7 @@ export default {
       this.$store.commit("select_row", row);
       if (this.is_contained(row, this.$store.state.selected_books)) {
         this.$store.commit(
-          "set_selected_books", 
+          "set_selected_books",
           this.remove_by_attr(
             this.$store.state.selected_books, "id", row.id)
         );
@@ -120,12 +116,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 tbody {
-  /* display: block; */
+  // display: block;
 }
 
 thead,
 tbody tr {
-  /* display: table; */
+  // display: table;
   width: 100%;
   align: center;
 }

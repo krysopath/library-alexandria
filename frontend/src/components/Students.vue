@@ -105,10 +105,9 @@ export default {
       });
     },
     toggle_row: function(row) {
-      this.$store.commit("select_row", row);
       if (this.is_contained(row, this.$store.state.selected_students)) {
         this.$store.commit(
-          "set_selected_students", 
+          "set_selected_students",
           this.remove_by_attr(
             this.$store.state.selected_students, "id", row.id)
         );

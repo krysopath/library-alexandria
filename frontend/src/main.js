@@ -15,7 +15,8 @@ const store = new Vuex.Store({
     selected_students: [],
     search_expr: "",
     students: {},
-    books: {}
+    books: {},
+    selected_category: ""
   },
   mutations: {
     set_search_expr(state, expr) {
@@ -41,6 +42,9 @@ const store = new Vuex.Store({
     },
     select_row(state, item) {
       state.selected = item;
+    },
+    select_a_category(state, item) {
+      state.selected_category = item
     }
   }
 });
