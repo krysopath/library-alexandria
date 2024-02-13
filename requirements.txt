@@ -10,7 +10,7 @@ MarkupSafe==1.0
 pytz==2018.5
 six==1.11.0
 SQLAlchemy==1.2.10
-Werkzeug==0.14.1
+Werkzeug==2.3.8
 psycopg2==2.7.5
 aniso8601==3.0.2
 certifi==2018.4.16
@@ -30,4 +30,4 @@ requests==2.19.1
 six==1.11.0
 SQLAlchemy==1.2.10
 urllib3==1.23
-Werkzeug==0.14.1
+Werkzeug==2.3.8
